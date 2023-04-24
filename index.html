@@ -1,30 +1,23 @@
 <!DOCTYPE html>
 <html>
 <!--The following code has been developed by students and/or researchers of the Freshman Research Initiative Maker Space Stream at The University of Texas at Austin. This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.
-
 Any user of this code does so at their own risk. Members of the Maker Space Stream, FRI, and The University of Texas system are not liable for anything related to this code.
-
 THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
-
 Authors in chronological order of contribution:
   Tim Riedel
   Niam Kuttanna
-  [...]
-
+  Krissa Jhaveri 
 Further Information:
   http://cns.utexas.edu/fri
-
-Brief summary of this code: [...]
-
-Known issues: [...]
-
+Brief summary of this code: The following code was created with the intention of enabling a user to make basic calculations as well as view featured vehicles for fun. 
+Known issues: The buttons within the app sometimes are delayed when it comes to performing their designated actions. 
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
 
   <!--Formatting source information and webpage title.-->
   <head>
-    <title>APP NAME GOES HERE</title>
+    <title>Krissa's App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="w3.css">
@@ -39,6 +32,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	var exampleVariable2 = 0;
 	var exampleVariable3 = 0;
 	
+	//addition function
 	function exampleFunction1()
 	{
 		// Assigns values to existing variables based on user input. The parseFloat() function converts string values to numerical values.
@@ -47,45 +41,86 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		
 		exampleVariable3 = exampleVariable1 + exampleVariable2;
 		
-		alert("You just ran an addition function!");
 		console.log("Addition function was run.");
 	}
-	
+	//subtraction function
 	function exampleFunction2()
+	{
+		exampleVariable1= parseFloat(document.getElementById("firstInputBox").value);
+		exampleVariable2 = parseFloat(document.getElementById("secondInputBox").value);
+		
+		exampleVariable3 = exampleVariable1 - exampleVariable2;
+		
+		console.log("Subtraction function was run.");
+	}	
+	//multiplication function
+	function exampleFunction3()
 	{
 		exampleVariable1 = parseFloat(document.getElementById("firstInputBox").value);
     		exampleVariable2 = parseFloat(document.getElementById("secondInputBox").value);
 		
 		exampleVariable3 = exampleVariable1 * exampleVariable2;
 		
-		alert("You just ran a multiplication function!");
 		console.log("Multiplication function was run.");
 	}
-	
-	function exampleFunction3()
+	//division function 
+	function exampleFunction4()
+	{
+		exampleVariable1= parseFloat(document.getElementById("firstInputBox").value);
+		exampleVariable2 = parseFloat(document.getElementById("secondInputBox").value);
+		
+		exampleVariable3 = exampleVariable1 / exampleVariable2;
+		
+		console.log("Division function was run.");
+	}
+	//exponent function
+	function exampleFunction5()
 	{
 		exampleVariable1 = parseFloat(document.getElementById("firstInputBox").value);
     		exampleVariable2 = parseFloat(document.getElementById("secondInputBox").value);
 		
 		exampleVariable3 = exampleVariable1 ** exampleVariable2;
 		
-		alert("You just ran an exponent function!");
 		console.log("Exponent function was run.");
-	}
-	
+		
+	}	
+	//Will display user's results based upon the calculational function they have utilized
 	function exampleResultsFunction()
-	{
+		{
 		document.getElementById("endResults").innerHTML = "Your final result is: " + exampleVariable3;
 		resetVariables();
 	}
-	
+	// Below will reset the variables to 0
 	function resetVariables()
 	{
 		exampleVariable1 = 0;
 		exampleVariable2 = 0;
 		exampleVariable3 = 0;
+		
 	}
-</script>
+	//inserts a number of smiley and frowny faces on the alternate page after the user has inputted their select numbers
+	function insertImages()
+	{
+		exampleVariable1 = parseFloat(document.getElementById("firstInputBox").value);
+    		exampleVariable2 = parseFloat(document.getElementById("secondInputBox").value);
+		
+		for(let index  = 0; index < exampleVariable1; index++)
+		{	
+				var smileyImage = document.createElement("img");
+				smileyImage.src = "https://i.imgur.com/jctdkSS.png"; 
+				document.getElementById("specialContent").appendChild(smileyImage);
+
+		  }
+		  for(let index2 = 0; index2 < exampleVariable2; index2++)
+		  {
+		
+				var frownyImage= document.createElement("img");
+				frownyImage.src = "https://i.imgur.com/dVUqrSt.png";
+				document.getElementById("specialContent").appendChild(frownyImage);
+			  }
+		document.getElementById("contentResult").innerHTML = "You inserted " + exampleVariable1 + "smiley faces and " + exampleVariable2 + "frowny faces!"; 
+           }
+   </script>
   
   
  
@@ -119,13 +154,14 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   <!--Landing page content.-->
   <div id="content" class="w3-container">
   	<!--Header!-->
-	<div id="header" class="w3-container w3-flat-carrot">
-		<h1>APP NAME GOES HERE</h1>
+	<div id="header" class="w3-container w3-blue-grey">
+		<h1>Amanda's App</h1>
 	</div>
 	
-	  <p>INTRODUCTION/DESCRIPTION OF APP GOES HERE</p>
-	
-	  <a href="#one" class="w3-btn w3-grey w3-round">Get Started!</a>
+	  <p>Hello! This app was developed for entertainment purposes and enables users to make calculations and view featured vehicles. Feel free to check the features out! </p>
+	  <a href="#one" class="w3-btn w3-grey w3-round">Make a calculation</a>
+	  <!--Button for page 2--> 
+	  <a href="#two" class="w3-btn w3-blue-grey w3-round">View featured vehicles</a>
 	
 	  <p>The following code has been developed by students and/or researchers of the Freshman Research Initiative Maker Space Stream at The University of Texas at Austin. This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code does so at their own risk. Members of the Maker Space Stream, FRI, and The University of Texas system are not liable for anything related to this code. THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION!</p>
   
@@ -133,14 +169,14 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   
 <!--FIRST SUBPAGE-->
 <div id="one" class="page">
-	<div id="header2" class="w3-container w3-flat-carrot">
-		<h1>Question 1</h1>
+	<div id="header2" class="w3-container w3-blue-grey">
+		<h1>Making a calculation</h1>
 	</div>
 	
   <center>
     
     	<div id="content2" class="w3-container">
-        	<p>QUESTION 1 GOES HERE</p>    
+        	<p>What function would you like to perform?</p>    
     	</div>
 	
 	<!--Form element. This allows for user input in HTML.-->
@@ -156,10 +192,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		
 		<br><br><br>
 	</form>
-      
-  <a href="#finalpage" onclick="exampleFunction1();" class="w3-btn w3-grey">Button 1</a>
-  <a href="#finalpage" onclick="exampleFunction2();" class="w3-btn w3-grey">Button 2</a>
-  <a href="#finalpage" onclick="exampleFunction3();" class="w3-btn w3-grey">Button 3</a>
+     <!--Below are the available functions within the app, they will show up as buttons-->  
+  <a href="#finalpage" onclick="exampleFunction1();" class="w3-btn w3-grey">Addition</a>
+  <a href="#finalpage" onclick="exampleFunction2();" class="w3-btn w3-grey">Subtract</a> 
+  <a href="#finalpage" onclick="exampleFunction3();" class="w3-btn w3-grey">Multiplication</a>
+  <a href="#finalpage" onclick="exampleFunction4();" class="w3-btn w3-grey">Division</a>
+  <a href="#finalpage" onclick="exampleFunction5();" class="w3-btn w3-grey">Exponential</a>
+ <a href="#specialpage" onclick="insertImages();" class="w3-btn w3-grey">Special Button</a> 
     
   </center>
 </div>  
@@ -168,40 +207,178 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   
 
 	  
+<!--Special Page where Smiley and frowny faces will display--> 
+	  <div id="specialpage" class="page">
+		  <!--header-->
+		  <div id="specialheader" class="w3-container w3-blue-grey">
+			  <h1>Special Page!</h1>
+		  </div>
+		  
+		  <center>
+		  <!--Main content-->
+		  <div id="specialContent" class="w3-container"> 
+			  <p id="contentResult">Try again!</p>
+		  </div>
+		  <!--A link that takes the user to a new page-->
+		  
+		  <a href="#content" onclick="resetVariables();" class="w3-btn w3-grey">Return to Home Page</a>
+			 
+			  <center>
+	  </div>	
 	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-<!--LAST SUBPAGE-->
+  
+<!--Results SUBPAGE-->
 <div id="finalpage" class="page">
-	<div id="finalheader" class="w3-container w3-flat-carrot">
-		<h1>FINAL PAGE TITLE GOES HERE</h1>
+	<div id="finalheader" class="w3-container w3-blue-grey">
+		<h1>Results</h1>
 	</div>
 	
   <center>
     
 	  <div id="finalcontent" class="w3-container">
-		  <p id="endResults">FINAL PAGE CONTENT GOES HERE</p>
+		  <p id="endResults">According to calculation...</p>
 	  </div>
   
-  <a class="w3-btn w3-black" onclick="exampleResultsFunction();">Click me!
+  <a class="w3-btn w3-black" onclick="exampleResultsFunction();">Click for result!
     <br>
-    <img id="resultsButtonImg" src="https://i.imgur.com/rZOaHhx.png" width="30" alt="spongebob">
+    <img id="resultsButtonImg" src="https://www.freeiconspng.com/thumbs/longhorn-png/longhorn-png-0.png" width="30" alt="longhorn">
+	  
   </a>
   <a href="#content" onclick="resetVariables();" class="w3-btn w3-black">Return to Home Page</a>
     
+ 
+<!--Choosing a vehicle SUBPAGE-->
+	<div id="two" class="page"> 
+	<div id="header2" class="w3-container w3-blue-grey">
+		<h1> 𝘾𝙝𝙤𝙤𝙨𝙞𝙣𝙜 𝙖 𝙫𝙚𝙝𝙞𝙘𝙡𝙚 𝙩𝙮𝙥𝙚 </p>
+		
+	</div>
+	
+	<center>
+	<!--Main content of the page-->
+		<div id="content3" class="w-3 container">
+			<p>Which car type would you like to view?</p>
+		</div>
+		
+		<center>
+	       
+		<!--User input--> 
+	       <a href="#three" class="w3-btn w3-blue-grey w3-round">Sports </a>
+	  <!--Button for page 3--> 
+	       <a href="#four" class="w3-btn w3-blue-grey w3-round">Sedan</a>
+			 <!--Button for page 4--> 
+	  <a href="#five" class="w3-btn w3-blue-grey w3-round">SUV</a>
+	  <!--Button for page 5--> 
+	  <a href="#six" class="w3-btn w3-blue-grey w3-round">Minivan</a>
+	 <!--Button for page 6--> 
+	 <a href="#seven" class="w3-btn w3-blue-grey w3-round">Truck</a>
+	 <!--Button for page 7--> 
+			
+	<a href=#content class="w3-btn w3-black"> Back to Homepage </a>
+		
+		<center> 
+		<br>
+		</div>
+
+
+	  
+<!--Sports car Subpage-->
+<div id="three" class="page">
+	<div id="header 3" class="w3-container w3-blue-grey">
+				  <h1><Ford Mustang></p>
+			          <h1>𝙁𝙤𝙧𝙙 𝙈𝙪𝙨𝙩𝙖𝙣𝙜</h1>
+			   </div>
+				
+
+		
+
+</body> 
+ <img src="https://i.imgur.com/gDwn20I.jpg" alt="Ford Mustang">
+</html>
+	<a href=#content class="w3-btn w3-blue-grey"> Homepage </a>
+			
+		</div>	
+				
+<!--Convertible Subpage-->
+<div id="four" class="page">
+	<div id="header 4" class="w3-container w3-blue-grey">
+				  <h1><Volkswagen GTI></p>
+			          <h1>𝙑𝙤𝙡𝙠𝙨𝙬𝙖𝙜𝙚𝙣 𝙂𝙏𝙄</h1>
+			   </div>
+				 
+					  
+					  
+					  
+</body>
+<img src="https://i.imgur.com/kYHQkSf.png" alt="Volkswagen">
+</html>
+        <a href=#content class="w3-btn w3-blue-grey"> Homepage </a>		
+	  
+		</div>		
+							
+  <!--SUV Subpage-->
+<div id="five" class="page">
+	<div id="header 5" class="w3-container w3-blue-grey">
+				  <h1><Jeep Wrangler></p>
+			          <h1>𝙅𝙚𝙚𝙥 𝙒𝙧𝙖𝙣𝙜𝙡𝙚𝙧</h1>
+			   </div>
+				
+			  
+					  
+					  
+					  
+</body>
+<img src="https://i.imgur.com/kdsM3uB.jpg" alt"Jeep Wrangler">
+</html>
+     <a href=#content class="w3-btn w3-blue-grey"> Homepage </a>		
+	  	  
+		</div>		
+
+ <!--Minivan Subpage-->
+<div id="six" class="page">
+	<div id="header 6" class="w3-container w3-blue-grey">
+				   <h1><Toyota Siena></p>
+			          <h1>𝙏𝙤𝙮𝙤𝙩𝙖 𝙎𝙞𝙚𝙣𝙖</h1>
+			   </div>
+				
+			  
+					  
+					  
+					  
+</body>
+<img src="https://i.imgur.com/ekUyIGB.png" alt="Toyota Siena">
+</html>
+    <a href=#content class="w3-btn w3-blue-grey"> Homepage </a>		
+	  
+	  
+		</div>
+
+ <!--Truck Subpage-->
+<div id="seven" class="page">
+	<div id="header 7" class="w3-container w3-blue-grey">
+				  <h1><Ford Maverick></p>
+			          <h1>𝙁𝙤𝙧𝙙 𝙈𝙖𝙫𝙚𝙧𝙞𝙘𝙠</h1>
+			   </div>
+				
+			  
+					  
+					  
+					  
+</body>
+<img src="https://i.imgur.com/3QIR4ZK.png" alt="Ford Maverick">
+</html>
+   <a href=#content class="w3-btn w3-blue-grey"> Homepage </a>		
+	  
+	  
+		</div>
   </center>
 </div>
-  
-  
+
+		<center>
   
 <!--Footer!-->
-<footer class="w3-bottom w3-container w3-flat-carrot">
-	<p>YOUR NAME (or anything you want) HERE</p>
+<footer class="w3-bottom w3-container w3-blue-grey">
+	<p>Thank you for participating!</p>
 </footer>
 </div>
 
